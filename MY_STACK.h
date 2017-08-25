@@ -5,8 +5,19 @@ template <typename T>
 class MY_STACK
 {
     public:
-        MY_STACK();
-        ~MY_STACK();
+        MY_STACK() : head_(nullptr), counter_(0) 
+		{}
+        ~MY_STACK()
+		{
+    Node* node = head_;
+    Node* next;
+
+    while (node) {
+        next = node->next_;
+        delete node;
+        node = next;
+    }
+		}
 
     private:
 
